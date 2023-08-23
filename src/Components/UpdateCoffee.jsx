@@ -1,9 +1,13 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const UpdateCoffee = () => {
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log('login page location', location);
+    const from = location.state?.from?.pathname || '/';
     const coffee = useLoaderData();
     const { _id, name, quantity, supplier, taste, category, details, photo } = coffee;
 
@@ -41,6 +45,7 @@ const UpdateCoffee = () => {
                         icon: 'success',
                         confirmButtonText: 'Cool'
                     })
+                    navigate(from, { replace: true })
                 }
             })
     }

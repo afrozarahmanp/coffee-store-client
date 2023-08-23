@@ -1,6 +1,12 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 
 const AddCoffee = () => {
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log('login page location', location);
+    const from = location.state?.from?.pathname || '/';
 
     const handleAddCoffee = event => {
         event.preventDefault();
@@ -37,6 +43,7 @@ const AddCoffee = () => {
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
+                  navigate(from, { replace: true })
             })
 
     }
