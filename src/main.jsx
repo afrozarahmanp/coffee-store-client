@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import {
   createBrowserRouter,
@@ -15,7 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
-    loader: ()=> fetch('http://localhost:5000/coffees')
+    loader: ()=> fetch('https://coffee-store-server-afrozarahmanp.vercel.app/coffees')
   },
   {
     path: 'addcoffee',
@@ -24,7 +23,7 @@ const router = createBrowserRouter([
   {
     path: 'updatecoffee/:id',
     element: <UpdateCoffee></UpdateCoffee>,
-    loader: ({params})=> fetch(`http://localhost:5000/coffees/${params.id}`)
+    loader: ({params})=> fetch(`https://coffee-store-server-afrozarahmanp.vercel.app/coffees/${params.id}`)
   }
 ]);
 

@@ -27,7 +27,7 @@ const AddCoffee = () => {
 
 
         //send data to the server
-        fetch('http://localhost:5000/coffees', {
+        fetch('https://coffee-store-server-afrozarahmanp.vercel.app/coffees', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
